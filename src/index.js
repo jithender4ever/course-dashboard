@@ -1,9 +1,19 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
+import "bootstrap/dist/css/bootstrap.min.css";
+import App from "./components/App";
+import "./index.css";
+import configureStore from "./redux";
 
-function App() {
-  debugger;
-  return <div>Hello!</div>;
-}
+const store = configureStore();
 
-ReactDOM.render(<App />, document.getElementById("root"));
+render(
+  <Provider store={store}>
+    <Router>
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById("app")
+);

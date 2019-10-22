@@ -17,11 +17,15 @@ module.exports = {
   devServer: {
     stats: "minimal",
     overlay: true,
-    historyApiFallback: true
+    historyApiFallback: true,
+    disableHostCheck: true,
+    headers: { "Access-Control-Allow-Origin": "*" },
+    https: false
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html"
+      template: "src/index.html",
+      favicon: "src/favicon.ico"
     })
   ],
   module: {
